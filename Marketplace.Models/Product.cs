@@ -14,6 +14,7 @@ namespace Marketplace.Models
         public Product()
         {
             this.Orders = new HashSet<Order>();
+            this.Files = new HashSet<File>();
         }
 
         public int Id { get; set; }
@@ -35,5 +36,7 @@ namespace Marketplace.Models
         public virtual Category Category { get; set; }
 
         public virtual ICollection<Order> Orders { get; set; }
+
+        public virtual ICollection<File> Files { get; set; }
     }
 }
