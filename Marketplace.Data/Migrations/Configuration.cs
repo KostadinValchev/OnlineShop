@@ -9,7 +9,8 @@ namespace Marketplace.Data.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationDataLossAllowed = true;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "Marketplace.Data.MarketplaceContext";
         }
 
