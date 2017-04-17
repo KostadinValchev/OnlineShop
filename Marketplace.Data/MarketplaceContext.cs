@@ -27,6 +27,8 @@ namespace Marketplace.Data
 
         public virtual IDbSet<Review> Review { get; set; }
 
+        public virtual IDbSet<File> Files { get; set; }
+
         public static MarketplaceContext Create()
         {
             return new MarketplaceContext();

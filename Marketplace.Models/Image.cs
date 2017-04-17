@@ -7,10 +7,7 @@ using System.Threading.Tasks;
 
 namespace Marketplace.Models
 {
-    public enum FileType
-    {
-        Avatar = 1, Photo
-    }
+
     public class Image
     {
 
@@ -40,5 +37,9 @@ namespace Marketplace.Models
 
 
         public virtual ICollection<Category> Category { get; set; }
+    }
+    public enum FileType
+    {
+        Avatar = 1, Photo
     }
 }
