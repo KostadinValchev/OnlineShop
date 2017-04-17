@@ -54,6 +54,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MarketplaceContext.cs" />
+    <Compile Include="Migrations\201704171258287_InitialCreate.cs" />
+    <Compile Include="Migrations\201704171258287_InitialCreate.Designer.cs">
+      <DependentUpon>201704171258287_InitialCreate.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -66,6 +70,11 @@
       <Project>{95E555AA-205A-465A-9920-1C01A9011D37}</Project>
       <Name>Marketplace.Models</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201704171258287_InitialCreate.resx">
+      <DependentUpon>201704171258287_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
