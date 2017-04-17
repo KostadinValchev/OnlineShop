@@ -1,0 +1,34 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Web", "Marketplace.Web\Marketplace.Web.csproj", "{08815EA2-1DD4-4D7C-ACF4-3461A4865F4A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Models", "Marketplace.Models\Marketplace.Models.csproj", "{95E555AA-205A-465A-9920-1C01A9011D37}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Marketplace.Data", "Marketplace.Data\Marketplace.Data.csproj", "{690F1A57-6BC2-4326-85E4-80351599FC32}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{08815EA2-1DD4-4D7C-ACF4-3461A4865F4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{08815EA2-1DD4-4D7C-ACF4-3461A4865F4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{08815EA2-1DD4-4D7C-ACF4-3461A4865F4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{08815EA2-1DD4-4D7C-ACF4-3461A4865F4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{95E555AA-205A-465A-9920-1C01A9011D37}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95E555AA-205A-465A-9920-1C01A9011D37}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95E555AA-205A-465A-9920-1C01A9011D37}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95E555AA-205A-465A-9920-1C01A9011D37}.Release|Any CPU.Build.0 = Release|Any CPU
+		{690F1A57-6BC2-4326-85E4-80351599FC32}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{690F1A57-6BC2-4326-85E4-80351599FC32}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{690F1A57-6BC2-4326-85E4-80351599FC32}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{690F1A57-6BC2-4326-85E4-80351599FC32}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
