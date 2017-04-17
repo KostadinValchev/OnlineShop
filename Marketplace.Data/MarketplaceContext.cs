@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration.Configuration;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using Marketplace.Data.Migrations;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Marketplace.Models;
 
@@ -14,6 +16,7 @@ namespace Marketplace.Data
         public MarketplaceContext()
             : base("MarketplaceContext", throwIfV1Schema: false)
         {
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<MarketplaceContext, Configuration>());
         }
 
         public virtual IDbSet<Product> Products { get; set; }
