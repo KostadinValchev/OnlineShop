@@ -10,7 +10,10 @@ namespace Marketplace.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
+<<<<<<< HEAD
             ContextKey = "Marketplace.Data.MarketplaceContext";
+=======
+>>>>>>> e97130b19e5617d6ae9dfe5db7377f0bfd246b6d
         }
 
         protected override void Seed(Marketplace.Data.MarketplaceContext context)

@@ -1,4 +1,6 @@
-﻿namespace Marketplace.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Marketplace.Models
 {
     using System.Security.Claims;
     using System.Threading.Tasks;
@@ -13,5 +15,11 @@
             // Add custom user claims here
             return userIdentity;
         }
+        [Required]
+        public string Firstname { get; set; }
+        [Required]
+        public string LastName { get; set; }
+        [Required]
+        public string Address { get; set; }
     }
 }
