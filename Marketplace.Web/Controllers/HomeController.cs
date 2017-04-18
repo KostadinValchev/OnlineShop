@@ -13,7 +13,12 @@ namespace Marketplace.Web.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            MarketplaceContext db = new MarketplaceContext();
+            List<object> myModel = new List<object>();
+            myModel.Add(db.Categories.ToList());
+            myModel.Add(db.Products.ToList());
+
+            return View(myModel);
         }
 
         public ActionResult About()
@@ -59,5 +64,7 @@ namespace Marketplace.Web.Controllers
                 return View(articles);
             }
         }
+
+        
     }
 }

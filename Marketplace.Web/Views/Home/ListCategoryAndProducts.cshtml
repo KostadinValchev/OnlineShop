@@ -9,32 +9,20 @@
     <h4>Categories</h4>
 
     <div style="background-color: gray">
-
-
         <div class="row">
-
             @foreach (var category in listCategory)
             {
                 <div class="col-md-2 text-center text-uppercase">
                     <p>
-
                         <h4>
-                            
-
                                 <span class="pull-left" style="font-size: 14px">
                                 @Html.ActionLink(string.Format($"{category.Title} "),
                                 "ListProducts", "Home", new { @categoryId = category.Id }, null)
                                 </span>
-
-                            
-
                         </h4>
-
                     </p>
                 </div>
-
             }
-
         </div>
     </div>
     <hr />
