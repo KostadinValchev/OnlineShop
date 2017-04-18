@@ -1,0 +1,25 @@
+﻿
+@model List<Marketplace.Models.Category>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<div class="container">
+    <div class="row">
+        @foreach (var category in Model)
+        {
+            <div class="col-md-2 text-center text-uppercase">
+                <p>
+                    <h4>
+                        @Html.ActionLink(string.Format($"{category.Title} "),
+                            "ListProducts", "Home", new { @categoryId = category.Id }, null)
+                    </h4>
+
+                </p>
+            </div>
+        
+        }
+    </div>
+</div>
+<hr />

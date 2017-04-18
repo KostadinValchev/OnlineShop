@@ -12,18 +12,16 @@ namespace Marketplace.Models
         public Category()
         {
             this.Products = new HashSet<Product>();
+            //this.Files = new HashSet<File>();
         }
 
         [Key]
         public int Id { get; set; }
 
         public string Title { get; set; }
+        
+        public virtual ICollection<Product> Products { get; set; }
 
-        [StringLength(140)]
-        public string Description { get; set; }
-
-        public bool IsActive { get; set; }
-
-        public ICollection<Product> Products { get; set; }
+        //public ICollection<File> Files { get; set; }
     }
 }

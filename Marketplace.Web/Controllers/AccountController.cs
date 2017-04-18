@@ -154,6 +154,9 @@ namespace Marketplace.Web.Controllers
             {
                 var user = new ApplicationUser { UserName = model.Email, Email = model.Email, Firstname = model.Firstname, LastName = model.LastName, Address = model.Address};
                 var result = await UserManager.CreateAsync(user, model.Password);
+
+                var addRoleResult = UserManager.AddToRole(user.Id, "User");
+
                 if (result.Succeeded)
                 {
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);

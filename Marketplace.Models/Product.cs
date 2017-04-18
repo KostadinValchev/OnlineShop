@@ -10,10 +10,22 @@ namespace Marketplace.Models
 {
     public class Product
     {
-
         public Product()
         {
-            this.Orders = new HashSet<Order>();
+        }
+
+        public Product(string make, string model, int size, string material, decimal price, string description, int categoryId)
+        {
+            //this.Orders = new HashSet<Order>();
+            this.Make = make;
+            this.Model = model;
+            this.Size = size;
+            this.Material = material;
+            this.Price = price;
+            this.Description = description;
+            this.CategoryId = categoryId;
+            //this.Files = new List<File>();
+            //this.Categories = new HashSet<Category>();
         }
 
         public int Id { get; set; }
@@ -26,6 +38,8 @@ namespace Marketplace.Models
 
         public string Material { get; set; }
 
+        public decimal Price { get; set; }
+
         [StringLength(255)]
         public string Description { get; set; }
 
@@ -34,6 +48,14 @@ namespace Marketplace.Models
 
         public virtual Category Category { get; set; }
 
-        public virtual ICollection<Order> Orders { get; set; }
+        
+
+        //public virtual ICollection<Order> Orders { get; set; }
+
+        //[ForeignKey("Buyer")]
+        //public string BuyerId { get; set; }
+        //public ApplicationUser Buyer { get; set; }
+
+        //public virtual ICollection<File> Files { get; set; }
     }
 }

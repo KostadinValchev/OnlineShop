@@ -16,7 +16,7 @@ namespace Marketplace.Models
     {
         public Order()
         {
-            this.Products = new HashSet<Product>();
+            //this.Products = new HashSet<Product>();
         }
 
         public int Id { get; set; }
@@ -29,7 +29,7 @@ namespace Marketplace.Models
 
         public Status Status { get; set; }
         
-        public virtual ICollection<Product> Products { get; set; }
+        //public virtual ICollection<Product> Products { get; set; }
 
         public int UserId { get; set; }
 

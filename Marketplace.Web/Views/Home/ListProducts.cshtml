@@ -1,0 +1,28 @@
+﻿@model List<Marketplace.Models.Product>
+@{
+    ViewBag.Title = "List";
+}
+
+<div class="container">
+    <div class="row">
+        @foreach (var product in Model)
+        {
+            <div class="col-sm-6">
+                <article>
+                    <header>
+                        <h2>
+                            @Html.ActionLink(@product.Make, "Details", "Product", new { @id = product.Id }, null)
+                        </h2>
+                    </header>
+                    <p>
+                        @product.Description
+                    </p>
+                    <footer class="pull-right">
+                        
+                    </footer>
+                </article>
+            </div>
+        }
+    </div>
+</div>
+<hr />

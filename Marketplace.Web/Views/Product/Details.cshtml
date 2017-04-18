@@ -1,0 +1,25 @@
+﻿@model Marketplace.Models.Product
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<div class="container">
+    <article>
+        <header>
+            <h2>
+                @Model.Make
+            </h2>
+        </header>
+        <p>
+            @Model.Description
+        </p>
+        
+        <footer class="pull-right">
+            @Html.ActionLink("Edit", "Edit", "Product", new { @id = Model.Id }, new { @class = "btn btn-success btn-xs" })
+            @Html.ActionLink("Delete", "Delete", "Product", new { @id = Model.Id }, new { @class = "btn btn-danger btn-xs" })
+            @Html.ActionLink("Back", "Index", "Product", null, new { @class = "btn btn-default btn-xs" })
+        </footer>
+    </article>
+</div>
+<hr />

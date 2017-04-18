@@ -1,0 +1,77 @@
+﻿
+@model IEnumerable<object>
+@{
+    List<Marketplace.Models.Category> listCategory = Model.ToList()[0] as List<Marketplace.Models.Category>;
+    List<Marketplace.Models.Product> listProducts = Model.ToList()[1] as List<Marketplace.Models.Product>;
+}
+
+<div class="container">
+    <h4>Categories</h4>
+
+    <div style="background-color: gray">
+
+
+        <div class="row">
+
+            @foreach (var category in listCategory)
+            {
+                <div class="col-md-2 text-center text-uppercase">
+                    <p>
+
+                        <h4>
+                            
+
+                                <span class="pull-left" style="font-size: 14px">
+                                @Html.ActionLink(string.Format($"{category.Title} "),
+                                "ListProducts", "Home", new { @categoryId = category.Id }, null)
+                                </span>
+
+                            
+
+                        </h4>
+
+                    </p>
+                </div>
+
+            }
+
+        </div>
+    </div>
+    <hr />
+</div>
+
+<div class="container">
+    <h4>Last added</h4>
+    <div class="row">
+
+        @foreach (var product in listProducts)
+        {
+
+            <div class="col-md-3">
+                <article>
+                    <header>
+                        <h4>
+                            @Html.ActionLink(@product.Make, "Details", "Product", new { @id = product.Id }, null)
+                        </h4>
+                    </header>
+
+
+                    <footer>
+
+                        <div class="pull-left">
+                            Price: <span class="text-danger">@product.Price лв.</span>
+                        </div>
+
+                    </footer>
+                </article>
+            </div>
+
+        }
+
+    </div>
+</div>
+<hr />
+
+
+
+

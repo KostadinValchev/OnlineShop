@@ -55,13 +55,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MarketplaceContext.cs" />
-      <Compile Include="Migrations\201704171342151_Upload AppUserProperies.cs" />
-      <Compile Include="Migrations\201704171342151_Upload AppUserProperies.Designer.cs">
-        <DependentUpon>201704171342151_Upload AppUserProperies.cs</DependentUpon>
-      </Compile>
-      <Compile Include="Migrations\Configuration.cs" />
-      <Compile Include="Properties\AssemblyInfo.cs" />
-    </ItemGroup>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
@@ -71,11 +67,6 @@
       <Project>{95E555AA-205A-465A-9920-1C01A9011D37}</Project>
       <Name>Marketplace.Models</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Migrations\201704171342151_Upload AppUserProperies.resx">
-      <DependentUpon>201704171342151_Upload AppUserProperies.cs</DependentUpon>
-    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
