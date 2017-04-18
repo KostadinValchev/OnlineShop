@@ -25,6 +25,13 @@
                     <li>@Html.ActionLink("About", "About", "Home")</li>
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
+                @using (Html.BeginForm("Search", "Home", FormMethod.Get))
+            {
+                    <div class="pull-left" style="padding-top: 10px">
+                        <input id="SearchString" value="" class="form-control" name="SearchString" type="text" placeholder="Find by name...">
+                        <input type="submit" class="btn btn-success" value="Search" style="margin-top: -57px; margin-left: 285px " />
+                    </div>
+                }
                 @Html.Partial("_LoginPartial")
             </div>
 

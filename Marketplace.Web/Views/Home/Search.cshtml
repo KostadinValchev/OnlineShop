@@ -1,0 +1,74 @@
+﻿@using Blog.Controllers
+@model IEnumerable<object>
+@{
+    List<Marketplace.Models.Category> listCategory = Model.ToList()[0] as List<Marketplace.Models.Category>;
+    List<Marketplace.Models.Product> listProducts = Model.ToList()[1] as List<Marketplace.Models.Product>;
+}
+
+@if (listProducts.Count == 1)
+{
+
+    ViewBag.Message = " We’ve found " + listProducts.Count + " result";
+
+}
+else if (listProducts.Count > 1)
+{
+    ViewBag.Message = " We’ve found " + listProducts.Count + " results";
+}
+else
+{
+    ViewBag.Message = "We couldn’t find any products matching ''''";
+}
+
+
+<div class="container">
+    <div class="row">
+        <h1> @ViewBag.Message </h1>
+        @foreach (var product in listProducts)
+        {
+
+            <div class="col-sm-6">
+                <article>
+                    <header>
+                        <h2>
+                            @Html.ActionLink(@product.Make, "Details", "Product", new { @id = product.Id }, null)
+                        </h2>
+                    </header>
+                    
+
+                    <footer></footer>
+                </article>
+            </div>
+        }
+
+
+    </div>
+</div>
+<hr />
+
+<div class="container">
+    <h4>Categories</h4>
+    <div style="background-color: White">
+
+        <div class="row">
+
+            @foreach (var category in listCategory)
+            {
+                <div class="col-md-2 text-center text-uppercase">
+                    <p>
+                        <h4>
+                            <span class="pull-left" style="font-size: 14px">
+                                @Html.ActionLink(string.Format($"{category.Title} "),
+                                "ListProducts", "Home", new { @categoryId = category.Id }, null)
+                            </span>
+                        </h4>
+
+                    </p>
+                </div>
+
+            }
+
+        </div>
+    </div>
+    <hr />
+</div>

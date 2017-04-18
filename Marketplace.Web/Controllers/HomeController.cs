@@ -21,6 +21,32 @@ namespace Marketplace.Web.Controllers
             return View(myModel);
         }
 
+        public ActionResult Search(string searchString)
+        {
+            using (var database = new MarketplaceContext())
+            {
+
+                var products = database.Products
+                    .ToList();
+
+                //search bar
+                if (!String.IsNullOrEmpty(searchString))
+                {
+                    products = products.Where(s => s.Make.ToLower().Contains(searchString.ToLower())).ToList();
+
+                    List<object> myModel = new List<object>();
+                    myModel.Add(database.Categories.ToList());
+                    myModel.Add(products);
+                    myModel.Add(products.Count);
+
+                    return View(myModel);
+                }
+
+            }
+
+            return RedirectToAction("Index");
+        }
+
         public ActionResult About()
         {
             ViewBag.Message = "Your application description page.";
