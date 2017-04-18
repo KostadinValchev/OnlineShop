@@ -72,6 +72,7 @@
             <div class="col-lg-12">
                 <hr>
                 <h1 class="intro-text text-center">Categories</h1>
+<<<<<<< HEAD
                 <h3 class="navbar-default" style="padding-left: 20px; padding-top: 10px; margin-left: 1">
                     @foreach (var cat in listCategory)
                     {
@@ -81,6 +82,22 @@
                         </span>
                     }
                 </h3>
+=======
+            
+                @foreach (var cat in listCategory)
+                {
+                    <h1 align="justify">
+                        
+                            <span>
+                                @Html.ActionLink(string.Format($"{cat.Title}"),
+                                "ListProducts", "Home", new { @categoryId = cat.Id }, null)
+                            </span>
+                        
+                    </h1>
+                }
+            
+
+>>>>>>> b7eb47c037746c6cf19dac1f992744b00c8f9675
                 <hr>
                 <h1 class="intro-text text-center">Products</h1>
                 <div class="row">

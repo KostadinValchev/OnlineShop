@@ -312,6 +312,10 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+<<<<<<< HEAD
+=======
+    <Content Include="Views\Home\Search.cshtml" />
+>>>>>>> b7eb47c037746c6cf19dac1f992744b00c8f9675
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Marketplace.Data\Marketplace.Data.csproj">
