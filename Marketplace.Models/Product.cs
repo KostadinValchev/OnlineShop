@@ -25,6 +25,7 @@ namespace Marketplace.Models
             this.Price = price;
             this.Description = description;
             this.CategoryId = categoryId;
+            
             //this.Files = new List<File>();
             //this.Categories = new HashSet<Category>();
 
@@ -50,20 +51,6 @@ namespace Marketplace.Models
 
         public virtual Category Category { get; set; }
 
-<<<<<<< HEAD
-        
-
-        //public virtual ICollection<Order> Orders { get; set; }
-
-        //[ForeignKey("Buyer")]
-        //public string BuyerId { get; set; }
-        //public ApplicationUser Buyer { get; set; }
-
-        //public virtual ICollection<File> Files { get; set; }
-=======
-        public virtual ICollection<Order> Orders { get; set; }
-
-        public virtual ICollection<File> Files { get; set; }
->>>>>>> 25a02aad657f2648bd15b299111104f200ff6995
+       
     }
 }

@@ -12,6 +12,7 @@ namespace Marketplace.Web.Controllers.Admin
 {
     public class ProductController : Controller
     {
+        
         // GET: Product
         //
         // GET: Article
