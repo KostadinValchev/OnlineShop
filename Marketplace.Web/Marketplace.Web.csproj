@@ -194,6 +194,7 @@
     <Compile Include="Controllers\Admin\UserController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -238,6 +239,13 @@
     <Content Include="Content\bootstrap-theme.min.css.map" />
     <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="img\bg.jpg" />
+    <Content Include="img\intro-pic.jpg" />
+    <Content Include="img\slide-1.jpg" />
+    <Content Include="img\slide-2.jpg" />
+    <Content Include="img\slide-3.jpg" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -284,6 +292,7 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+
     <Content Include="Views\User\List.cshtml" />
     <Content Include="Views\User\Edit.cshtml" />
     <Content Include="Views\User\Delete.cshtml" />
@@ -297,6 +306,13 @@
     <Content Include="Views\Home\ListCategoryAndProducts.cshtml" />
     <Content Include="Views\Home\ListProducts.cshtml" />
     <Content Include="Views\Home\ListCategories.cshtml" />
+
+    <Content Include="Views\Products\Create.cshtml" />
+    <Content Include="Views\Products\Delete.cshtml" />
+    <Content Include="Views\Products\Details.cshtml" />
+    <Content Include="Views\Products\Edit.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
+
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Marketplace.Data\Marketplace.Data.csproj">

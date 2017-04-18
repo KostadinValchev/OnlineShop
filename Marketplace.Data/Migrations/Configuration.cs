@@ -13,6 +13,7 @@ namespace Marketplace.Data.Migrations
     {
         public Configuration()
         {
+
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
         }
@@ -75,6 +76,7 @@ namespace Marketplace.Data.Migrations
             {
                 throw new Exception(string.Join(";", result.Errors));
             }
+
         }
 
         private void SetRoleToUser(MarketplaceContext context, string email, string role)

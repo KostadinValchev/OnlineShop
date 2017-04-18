@@ -55,7 +55,9 @@
   <ItemGroup>
     <Compile Include="ApplicationUser.cs" />
     <Compile Include="Category.cs" />
+
     <Compile Include="EditUserViewModel.cs" />
+
     <Compile Include="File.cs" />
     <Compile Include="Order.cs" />
     <Compile Include="ProductViewModel.cs" />

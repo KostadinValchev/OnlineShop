@@ -12,6 +12,7 @@ namespace Marketplace.Models
     {
         public Product()
         {
+
         }
 
         public Product(string make, string model, int size, string material, decimal price, string description, int categoryId)
@@ -26,6 +27,7 @@ namespace Marketplace.Models
             this.CategoryId = categoryId;
             //this.Files = new List<File>();
             //this.Categories = new HashSet<Category>();
+
         }
 
         public int Id { get; set; }
@@ -44,10 +46,11 @@ namespace Marketplace.Models
         public string Description { get; set; }
 
         [ForeignKey("Category")]
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
 
         public virtual Category Category { get; set; }
 
+<<<<<<< HEAD
         
 
         //public virtual ICollection<Order> Orders { get; set; }
@@ -57,5 +60,10 @@ namespace Marketplace.Models
         //public ApplicationUser Buyer { get; set; }
 
         //public virtual ICollection<File> Files { get; set; }
+=======
+        public virtual ICollection<Order> Orders { get; set; }
+
+        public virtual ICollection<File> Files { get; set; }
+>>>>>>> 25a02aad657f2648bd15b299111104f200ff6995
     }
 }
