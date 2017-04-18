@@ -13,7 +13,7 @@ namespace Marketplace.Web.Controllers
     {
         public ActionResult Index()
         {
-            return RedirectToAction("ListCategories");
+            return View();
         }
 
         public ActionResult About()
