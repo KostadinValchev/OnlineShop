@@ -4,20 +4,124 @@
     ViewBag.Title = "Details";
 }
 
+@*<h2>Details</h2>
+
+    <div>
+        <h4>Product</h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Category.Title)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category.Title)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Make)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Make)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Model)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Model)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Size)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Size)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Material)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Material)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Description)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Description)
+            </dd>
+
+        </dl>
+    </div>*@
+
 <div class="container">
+
+    <div id="fb-root"></div>
+    <script>
+        (function (d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) return;
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/bg_BG/sdk.js#xfbml=1&version=v2.8&appId=1813083162293390";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
     <article>
         <header>
             <h2>
                 @Model.Make
             </h2>
         </header>
-        <p>
-            @Model.Description
-        </p>
-        
-        <footer class="pull-right">
-            
-        </footer>
+        <div class="col-md-6">
+            <article>
+                <img src="http://bestauto.bg/footer_images_product/DSC_0009.JPG" alt="пакет-за-c-class-w204" width="300" height="300" />
+
+                @*@if (Model.Files.Any(f => f.FileType == Blog.Models.FileType.Avatar))
+                    {
+
+                            <dd>
+                                <img src="~/File?id=@Model.Files.First(f => f.FileType == FileType.Avatar).FileId"
+                                     alt="avatar" width="500px" />
+
+                            </dd>
+
+                        }*@
+            </article>
+        </div>
+        <div class="col-md-6" style="margin-top: 10px; font-size: 20px" class="text-info">
+            <p>
+                <span class="glyphicon glyphicon-list-alt"></span> Model: @Model.Model
+            </p>
+            <p>
+                <span class="glyphicon glyphicon-stats"></span> Material: @Model.Material
+            </p>
+
+            <p>
+                <span class="glyphicon glyphicon-usd"></span> Price: <span class="text-danger">@Model.Price лв.</span>
+            </p>
+
+        </div>
+
+        <div class="col-sm-12">
+            <br />
+            <article>
+                <div class="pull-left">
+                    <span class="glyphicon glyphicon-list-alt"></span>
+                    <span>Description: @Model.Description</span>
+                </div>
+            </article>
+        </div>
+
     </article>
+    <p class="col-md-12">
+        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
 <hr />
