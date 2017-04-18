@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Marketplace.Data;
 using Marketplace.Models;
 
+
 namespace Marketplace.Web.Controllers.Admin
 {
     public class ProductController : Controller
@@ -30,7 +31,7 @@ namespace Marketplace.Web.Controllers.Admin
             {
                 //Get articles from database
                 var products = database.Products
-                    //.Include(a => a.Files)
+                    .Include(a => a.Files)
                     .ToList();
 
                 return View(products);
@@ -51,7 +52,7 @@ namespace Marketplace.Web.Controllers.Admin
             {
                 var products = database.Products
                     .Where(a => a.Id == id)
-                    //.Include(s => s.Files)
+                    .Include(s => s.Files)
                     .SingleOrDefault(s => s.Id == id);
 
 
@@ -85,12 +86,12 @@ namespace Marketplace.Web.Controllers.Admin
         [HttpPost]
         [Authorize]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(ProductViewModel model)
+        public ActionResult Create(ProductViewModel model, HttpPostedFileBase upload)
         {
-            //if (!ModelState.IsValid)
-            //{
-            //    return RedirectToAction("Create");
-            //}
+            if (!ModelState.IsValid)
+            {
+                return RedirectToAction("Create");
+            }
 
             using (var database = new MarketplaceContext())
             {
@@ -99,20 +100,20 @@ namespace Marketplace.Web.Controllers.Admin
 
 
                 //uploading photo
-                //if (upload != null && upload.ContentLength > 0)
-                //{
-                //    var avatar = new File
-                //    {
-                //        FileName = System.IO.Path.GetFileName(upload.FileName),
-                //        FileType = FileType.Avatar,
-                //        ContentType = upload.ContentType
-                //    };
-                //    using (var reader = new System.IO.BinaryReader(upload.InputStream))
-                //    {
-                //        avatar.Content = reader.ReadBytes(upload.ContentLength);
-                //    }
-                //    product.Files = new List<File> { avatar };
-                //}
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    var avatar = new File
+                   {
+                       FileName = System.IO.Path.GetFileName(upload.FileName),
+                        FileType = FileType.Avatar,
+                       ContentType = upload.ContentType
+                    };
+                   using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                   {
+                       avatar.Content = reader.ReadBytes(upload.ContentLength);
+                   }
+                   product.Files = new List<File> { avatar };
+                }
 
                 database.Products.Add(product);
                 database.SaveChanges();
@@ -137,7 +138,7 @@ namespace Marketplace.Web.Controllers.Admin
                 var product = database.Products
                     .Where(a => a.Id == id)
                     .Include(c => c.Category)
-                    //.Include(c => c.Files)
+                    .Include(c => c.Files)
                     .First();
 
                 if (!IsUserAuthorizedToEdit(product))
@@ -173,7 +174,7 @@ namespace Marketplace.Web.Controllers.Admin
                 var products = database.Products
                     .Where(a => a.Id == id)
                     .Include(c => c.Category)
-                    //.Include(c => c.Files)
+                    .Include(c => c.Files)
                     .First();
 
                 // Check if article exists
@@ -183,7 +184,7 @@ namespace Marketplace.Web.Controllers.Admin
                 }
 
                 // Delete article from database
-                //database.Files.Remove(products.Files.First(f => f.FileType == FileType.Avatar));
+                database.Files.Remove(products.Files.First(f => f.FileType == FileType.Avatar));
                 database.Products.Remove(products);
                 database.SaveChanges();
 
@@ -206,7 +207,7 @@ namespace Marketplace.Web.Controllers.Admin
                 // Get article from database 
                 var product = database.Products
                     .Where(a => a.Id == id)
-                    //.Include(a => a.Files)
+                    .Include(a => a.Files)
                     .First();
 
 
@@ -232,7 +233,7 @@ namespace Marketplace.Web.Controllers.Admin
                 model.Categories = database.Categories
                     .OrderBy(c => c.Title)
                     .ToList();
-                //model.Files = product.Files;
+                model.Files = product.Files;
                 // Pass the view model to view
                 return View(model);
             }
@@ -263,26 +264,26 @@ namespace Marketplace.Web.Controllers.Admin
                     model.Categories = database.Categories
                         .OrderBy(c => c.Title)
                         .ToList();
-                    //model.Files = product.Files;
+                    model.Files = product.Files;
 
-                    //if (upload != null && upload.ContentLength > 0)
-                    //{
-                    //    if (product.Files.Any(f => f.FileType == FileType.Avatar))
-                    //    {
-                    //        database.Files.Remove(product.Files.First(f => f.FileType == FileType.Avatar));
-                    //    }
-                    //    var avatar = new File
-                    //    {
-                    //        FileName = System.IO.Path.GetFileName(upload.FileName),
-                    //        FileType = FileType.Avatar,
-                    //        ContentType = upload.ContentType
-                    //    };
-                    //    using (var reader = new System.IO.BinaryReader(upload.InputStream))
-                    //    {
-                    //        avatar.Content = reader.ReadBytes(upload.ContentLength);
-                    //    }
-                    //    product.Files = new List<File> { avatar };
-                    //}
+                    if (upload != null && upload.ContentLength > 0)
+                   {
+                        if (product.Files.Any(f => f.FileType == FileType.Avatar))
+                        {
+                           database.Files.Remove(product.Files.First(f => f.FileType == FileType.Avatar));
+                        }
+                        var avatar = new File
+                        {
+                            FileName = System.IO.Path.GetFileName(upload.FileName),
+                            FileType = FileType.Avatar,
+                            ContentType = upload.ContentType
+                        };
+                        using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                        {
+                            avatar.Content = reader.ReadBytes(upload.ContentLength);
+                        }
+                        product.Files = new List<File> { avatar };
+                    }
 
                     // Save article state in database
                     database.Entry(product).State = EntityState.Modified;

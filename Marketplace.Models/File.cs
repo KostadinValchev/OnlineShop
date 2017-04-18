@@ -11,32 +11,32 @@ namespace Marketplace.Models
     public class File
     {
 
-        //public File()
-        //{
-        //    this.Products = new HashSet<Product>();
-        //    this.Category = new HashSet<Category>();
-        //}
+        public File()
+        {
+            this.Products = new HashSet<Product>();
+            this.Category = new HashSet<Category>();
+        }
 
         public int Id { get; set; }
 
 
-        //[StringLength(255)]
+        [StringLength(255)]
         public string FileName { get; set; }
 
-        //[StringLength(100)]
-        //public string ContentType { get; set; }
+        [StringLength(100)]
+        public string ContentType { get; set; }
 
 
-        //public byte[] Content { get; set; }
+        public byte[] Content { get; set; }
 
 
-        //public FileType FileType { get; set; }
+        public FileType FileType { get; set; }
 
 
-        //public virtual ICollection<Product> Products { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
 
 
-        //public virtual ICollection<Category> Category { get; set; }
+        public virtual ICollection<Category> Category { get; set; }
     }
     public enum FileType
     {

@@ -9,7 +9,11 @@ namespace Marketplace.Models
 {
     public class ProductViewModel
     {
-        
+        public ProductViewModel()
+        {
+            //this.Files = new List<File>();
+            this.Categories = new List<Category>();
+        }
         public int Id { get; set; }
 
         public string Make { get; set; }
@@ -22,7 +26,7 @@ namespace Marketplace.Models
 
         public decimal Price { get; set; }
 
-        //public byte[] Image { get; set; }
+        public byte[] Image { get; set; }
 
         [StringLength(255)]
         public string Description { get; set; }
@@ -31,6 +35,6 @@ namespace Marketplace.Models
         
         public int CategoryId { get; set; }
         
-        //public virtual ICollection<File> Files { get; set; }
+        public virtual ICollection<File> Files { get; set; }
     }
 }

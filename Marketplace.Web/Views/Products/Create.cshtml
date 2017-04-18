@@ -1,4 +1,4 @@
-﻿@model Marketplace.Models.Product
+﻿@model Marketplace.Models.ProductViewModel
 
 @{
     ViewBag.Title = "Create";
@@ -7,7 +7,7 @@
 <h2>Create</h2>
 
 
-@using (Html.BeginForm())
+@using (Html.BeginForm("Create", "Products", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
 {
     @Html.AntiForgeryToken()
 
@@ -62,6 +62,12 @@
                 @Html.ValidationMessageFor(model => model.CategoryId, "", new { @class = "text-danger" })
             </div>
         </div>
+        <span class="form-group">
+            @Html.Label("Picture", new { @class = "control-label col-sm-4 text-danger" })
+            <span class="col-sm-4">
+                <input type="file" id="Avatar" name="upload" />
+            </span>
+        </span>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
