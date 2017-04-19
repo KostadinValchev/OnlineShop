@@ -148,6 +148,7 @@ namespace Marketplace.Web.Controllers
         public ActionResult DeleteConfirmed(int id)
         {
             Product product = db.Products.Find(id);
+            db.Files.Remove(product.Files.First(f => f.FileType == FileType.Avatar));
             db.Products.Remove(product);
             db.SaveChanges();
             return RedirectToAction("Index");
