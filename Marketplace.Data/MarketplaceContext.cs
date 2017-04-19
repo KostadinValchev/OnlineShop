@@ -19,6 +19,11 @@ namespace Marketplace.Data
             Database.SetInitializer(new MigrateDatabaseToLatestVersion<MarketplaceContext, Configuration>());
         }
 
+        //protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        //{
+        //    modelBuilder.Entity<Order>().HasRequired(o => o.Product);
+        //}
+
         public virtual IDbSet<Product> Products { get; set; }
 
         public virtual IDbSet<Category> Categories { get; set; }

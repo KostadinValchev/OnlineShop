@@ -1,4 +1,5 @@
-﻿@model Marketplace.Models.Product
+﻿@using Marketplace.Models
+@model Marketplace.Models.Product
 
 @{
     ViewBag.Title = "Details";
@@ -79,20 +80,20 @@
             </h2>
         </header>
         <div class="col-md-6">
-            <article>
-                <img src="http://bestauto.bg/footer_images_product/DSC_0009.JPG" alt="пакет-за-c-class-w204" width="300" height="300" />
+            <div class="col-md-6">
+                <article>
+                    @if (Model.Files.Any(f => f.FileType == Marketplace.Models.FileType.Avatar))
+            {
 
-                @*@if (Model.Files.Any(f => f.FileType == Blog.Models.FileType.Avatar))
-                    {
+                        <dd>
+                            <img src="~/File?id=@Model.Files.First(f => f.FileType == FileType.Avatar).Id"
+                                 alt="avatar" width="500px" />
 
-                            <dd>
-                                <img src="~/File?id=@Model.Files.First(f => f.FileType == FileType.Avatar).FileId"
-                                     alt="avatar" width="500px" />
+                        </dd>
 
-                            </dd>
-
-                        }*@
-            </article>
+                    }
+                </article>
+            </div>
         </div>
         <div class="col-md-6" style="margin-top: 10px; font-size: 20px" class="text-info">
             <p>
@@ -120,7 +121,7 @@
 
     </article>
     <p class="col-md-12">
-        @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+        @Html.ActionLink("Order", "Create", "Orders", FormMethod.Post, new {id = Model.Id}) 
         @Html.ActionLink("Back to List", "Index")
     </p>
 </div>

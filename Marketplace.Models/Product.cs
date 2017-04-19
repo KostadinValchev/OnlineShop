@@ -25,8 +25,8 @@ namespace Marketplace.Models
             this.Price = price;
             this.Description = description;
             this.CategoryId = categoryId;
-            
             this.Files = new List<File>();
+            this.Orders = new HashSet<Order>();
             //this.Categories = new HashSet<Category>();
 
         }
@@ -53,6 +53,7 @@ namespace Marketplace.Models
 
         public virtual ICollection<File> Files { get; set; }
 
+        public virtual ICollection<Order> Orders { get; set; }
        
     }
 }

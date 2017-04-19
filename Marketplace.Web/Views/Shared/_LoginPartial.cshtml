@@ -15,9 +15,9 @@
                         <li>@Html.ActionLink("Categories", "List", "Category")</li>
                         <li>@Html.ActionLink("Create Product", "Create", "Products")</li>
                         <li>@Html.ActionLink("List Products", "Index", "Products")</li>
+                        <li>@Html.ActionLink("List Orders", "Index", "Orders")</li>
                     </ul>
                 </li>
-
             }
             <li>
                 @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new {title = "Manage"})

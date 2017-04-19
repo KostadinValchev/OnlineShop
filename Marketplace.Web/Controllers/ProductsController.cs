@@ -49,10 +49,24 @@ namespace Marketplace.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Make,Model,Size,Material,Description,CategoryId")] Product product)
+        public ActionResult Create([Bind(Include = "Id,Make,Model,Size,Material,Price,Description,CategoryId")] Product product, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    var avatar = new File
+                    {
+                        FileName = System.IO.Path.GetFileName(upload.FileName),
+                        FileType = FileType.Avatar,
+                        ContentType = upload.ContentType
+                    };
+                    using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                    {
+                        avatar.Content = reader.ReadBytes(upload.ContentLength);
+                    }
+                    product.Files = new List<File> { avatar };
+                }
                 db.Products.Add(product);
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -83,10 +97,28 @@ namespace Marketplace.Web.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "Id,Make,Model,Size,Material,Description,CategoryId")] Product product)
+        public ActionResult Edit([Bind(Include = "Id,Make,Model,Size,Material,,Price,Description,CategoryId")] Product product, HttpPostedFileBase upload)
         {
             if (ModelState.IsValid)
             {
+                if (upload != null && upload.ContentLength > 0)
+                {
+                    if (product.Files.Any(f => f.FileType == FileType.Avatar))
+                    {
+                        db.Files.Remove(product.Files.First(f => f.FileType == FileType.Avatar));
+                    }
+                    var avatar = new File
+                    {
+                        FileName = System.IO.Path.GetFileName(upload.FileName),
+                        FileType = FileType.Avatar,
+                        ContentType = upload.ContentType
+                    };
+                    using (var reader = new System.IO.BinaryReader(upload.InputStream))
+                    {
+                        avatar.Content = reader.ReadBytes(upload.ContentLength);
+                    }
+                    product.Files = new List<File> { avatar };
+                }
                 db.Entry(product).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -120,6 +152,14 @@ namespace Marketplace.Web.Controllers
             db.SaveChanges();
             return RedirectToAction("Index");
         }
+
+        public ActionResult OrderCreate()
+        {
+            Product product = db.Products.Find();
+            return View(product);
+        }
+
+
 
         protected override void Dispose(bool disposing)
         {

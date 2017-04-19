@@ -6,25 +6,19 @@ using System.Threading.Tasks;
 
 namespace Marketplace.Models
 {
-    public enum Status
+    public class OrderViewModel
     {
-        Pending,
-        Processing,
-        Shipped
-    }
-    public class Order
-    {
-
-        public int Id { get; set; }
-
         public string ShippingAddress { get; set; }
-        
+
+
         public string Fullname { get; set; }
 
         public int ProductId { get; set; }
-        public virtual Product Product { get; set; }
-        
+        public Product Product { get; set; }
+
         //public virtual ICollection<Product> Products { get; set; }
 
+        public int UserId { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }
