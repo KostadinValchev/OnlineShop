@@ -19,8 +19,6 @@
                         <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
                         <li data-target="#carousel-example-generic" data-slide-to="1"></li>
                         <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="3"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="4"></li>
                     </ol>
 
                     <!-- Wrapper for slides -->
@@ -75,15 +73,11 @@
 
                                     </h4>
                                 </header>
-                                @if (p.Files.Any(f => f.FileType == Marketplace.Models.FileType.Avatar))
+                                @if (p.Files.Any(f => f.FileType == FileType.Avatar))
                                 {
-
-                                    <dd>
-                                        <img src="~/File?id=@p.Files.First(f => f.FileType == FileType.Avatar).Id"
-                                             alt="avatar" width="200px" />
-
-                                    </dd>
-
+                                    <a class="media-left" href="@Url.Action("Details", "Product", new {id = p.Id})">
+                                        <img class="media-object" src="~/File?id=@p.Files.First(f => f.FileType == FileType.Avatar).Id" alt="image" width="280" />
+                                    </a>
                                 }
                                 <footer>
 
@@ -108,21 +102,6 @@
             </div>
         </div>
     </div>
-
-    <div class="row">
-        <div class="box">
-            <div class="col-lg-12">
-                <hr>
-                <h2 class="intro-text text-center">
-                    Beautiful boxes <strong>to showcase your content</strong>
-                </h2>
-                <hr>
-                <p>Use as many boxes as you like, and put anything you want in them! They are great for just about anything, the sky's the limit!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc placerat diam quis nisl vestibulum dignissim. In hac habitasse platea dictumst. Interdum et malesuada fames ac ante ipsum primis in faucibus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</p>
-            </div>
-        </div>
-    </div>
-
 </div>
 @section scripts
 {
