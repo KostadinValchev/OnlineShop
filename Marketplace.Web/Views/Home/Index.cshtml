@@ -51,18 +51,9 @@
                         <span class="icon-next"></span>
                     </a>
                 </div>
-                <h2>
-                    <small>
-                        BEST SELLERS RUNNING SHOES
-                    </small>
-                </h2>
                 <h1>
                     <span class="brand-name">OUTLET</span>
                 </h1>
-                <hr class="tagline-divider">
-                <h2>
-                    <small>By <strong>Codealerz</strong></small>
-                </h2>
             </div>
         </div>
     </div>
@@ -70,30 +61,6 @@
     <div class="row">
         <div class="box">
             <div class="col-lg-12">
-                <hr>
-                <h1 class="intro-text text-center">Categories</h1>
-                <div class="row">
-                    @foreach (var c in listCategory)
-                    {
-                        <div class="col-md-2">
-                            <article>
-                                <header>
-                                    <h2>
-                                        @Html.ActionLink(string.Format($"{c.Title}"),
-                                            "ListProducts", "Home", new { @CategoryId = c.Id }, null)
-
-                                    </h2>
-                                </header>
-                                
-                            </article>
-                        </div>
-
-                    }
-                </div>
-            
-            
-
-                <hr>
                 <h1 class="intro-text text-center">Products</h1>
                 <div class="row">
                     @foreach (var p in listProducts)

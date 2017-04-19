@@ -17,7 +17,7 @@ namespace Marketplace.Data.Migrations
             AutomaticMigrationsEnabled = true;
             AutomaticMigrationDataLossAllowed = true;
         }
-        
+
         protected override void Seed(MarketplaceContext context)
         {
             if (!context.Roles.Any())
@@ -30,7 +30,20 @@ namespace Marketplace.Data.Migrations
             {
                 this.CreateUser(context, "admin@abv.bg", "123", "Pesho", "Pashov", "ul. Tintiava");
                 this.SetRoleToUser(context, "admin@abv.bg", "Admin");
+                var categoryNike = new Category()
+                {
+                    Title = "NIKE"
+                }; var categoryAdidas = new Category()
+                {
+                    Title = "ADIDAS"
+                }; var categoryPuma = new Category()
+                {
+                    Title = "PUMA"
+                };
+                context.Categories.AddOrUpdate(cat => cat.Title, categoryNike, categoryAdidas, categoryPuma);
+                context.SaveChanges();
             }
+           
         }
 
         private void CreateRole(MarketplaceContext context, string roleName)
