@@ -1,3 +1,4 @@
+@using Marketplace.Models
 @model IEnumerable<object>
 @{
     List<Marketplace.Models.Category> listCategory = Model.ToList()[0] as List<Marketplace.Models.Category>;
@@ -74,6 +75,16 @@
 
                                     </h4>
                                 </header>
+                                @if (p.Files.Any(f => f.FileType == Marketplace.Models.FileType.Avatar))
+                                {
+
+                                    <dd>
+                                        <img src="~/File?id=@p.Files.First(f => f.FileType == FileType.Avatar).Id"
+                                             alt="avatar" width="200px" />
+
+                                    </dd>
+
+                                }
                                 <footer>
 
                                     <div class="pull-left">

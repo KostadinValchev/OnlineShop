@@ -13,7 +13,7 @@ namespace Marketplace.Web
         public void Configuration(IAppBuilder app)
         {
             var context = new MarketplaceContext();
-            context.Database.Initialize(true);
+            //context.Database.Initialize(true);
             ConfigureAuth(app);
         }
     }
